@@ -1,0 +1,14 @@
+name: AI Code Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Review Agent
+        run: |
+          echo "Review agent will be triggered via webhook"
+          echo "PR number: ${{ github.event.pull_request.number }}"
